@@ -1,0 +1,245 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../../content/senate-elections.json";
+
+const base = import.meta.env.BASE_URL;
+
+const overview = (data as any).overview;
+const quickFacts = (data as any).quick_facts as any[];
+const electoralCollege = (data as any).electoral_college;
+const howItWorks = (data as any).how_it_works as any[];
+const series = (data as any).series;
+const ruralBias = (data as any).rural_overrepresentation;
+const reformTimeline = (data as any).reform_timeline as any[];
+const roleSnapshot = (data as any).senate_role_snapshot;
+---
+
+<Layout title="Élections sénatoriales">
+
+  <div class="bg-civic-950 px-5 py-10 md:py-12">
+    <div class="max-w-3xl mx-auto">
+      <h1 data-enter="1" class="font-display text-fluid-page font-bold text-amber-50 mb-4">
+        <span class="fr-content">{overview.title_fr}</span>
+        <span class="en-content">{overview.title_en}</span>
+      </h1>
+      <p data-enter="2" class="text-amber-300 text-sm max-w-xl leading-relaxed fr-content">{overview.summary_fr}</p>
+      <p data-enter="2" class="text-amber-300 text-sm max-w-xl leading-relaxed en-content">{overview.summary_en}</p>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-5 py-8 md:py-12 space-y-8">
+
+    <!-- Quick facts -->
+    <section class="grid grid-cols-2 sm:grid-cols-5 gap-3 js-reveal">
+      {quickFacts.map((f) => (
+        <div class="border border-amber-200 rounded-sm px-3 py-3 bg-amber-50 text-center">
+          <p class="font-display text-lg font-bold text-amber-950">
+            {f.value ?? (
+              <>
+                <span class="fr-content">{f.value_fr}</span>
+                <span class="en-content">{f.value_en}</span>
+              </>
+            )}
+          </p>
+          <p class="lbl text-amber-500 font-medium mt-1">
+            <span class="fr-content">{f.label_fr}</span>
+            <span class="en-content">{f.label_en}</span>
+          </p>
+          {(f.note_fr || f.note_en) && (
+            <p class="text-[0.68rem] text-amber-500 leading-snug mt-1">
+              <span class="fr-content">{f.note_fr}</span>
+              <span class="en-content">{f.note_en}</span>
+            </p>
+          )}
+        </div>
+      ))}
+    </section>
+
+    <!-- Upcoming election highlight -->
+    {series?.upcoming_note_fr && (
+      <section class="border border-amber-500/40 bg-amber-100/60 rounded-sm px-5 py-4 js-reveal">
+        <p class="lbl font-semibold text-amber-600 mb-1">
+          <span class="fr-content">Prochain scrutin</span><span class="en-content">Upcoming election</span>
+        </p>
+        <p class="text-sm text-amber-900 fr-content">{series.upcoming_note_fr}</p>
+        <p class="text-sm text-amber-900 en-content">{series.upcoming_note_en}</p>
+      </section>
+    )}
+
+    <!-- Electoral college -->
+    <article class="border border-amber-200 rounded-sm overflow-hidden js-card js-reveal">
+      <div class="bg-amber-50 border-b border-amber-200 px-5 py-4">
+        <h2 class="font-display text-lg font-semibold text-amber-950">
+          <span class="fr-content">{electoralCollege.title_fr}</span>
+          <span class="en-content">{electoralCollege.title_en}</span>
+        </h2>
+      </div>
+      <div class="px-5 py-5 space-y-4">
+        <p class="text-sm text-amber-800 leading-relaxed fr-content">{electoralCollege.intro_fr}</p>
+        <p class="text-sm text-amber-800 leading-relaxed en-content">{electoralCollege.intro_en}</p>
+
+        <ul class="space-y-1">
+          {(electoralCollege.members as any[]).map((m) => (
+            <li class="flex items-start gap-2 text-sm text-amber-800">
+              <span class="text-amber-400 flex-shrink-0 mt-0.5">·</span>
+              <span>
+                <span class="fr-content">{m.category_fr}</span>
+                <span class="en-content">{m.category_en}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="border-t border-amber-100 pt-4 space-y-2">
+          <p class="text-sm text-amber-800 leading-relaxed fr-content">{electoralCollege.municipal_weight_fr}</p>
+          <p class="text-sm text-amber-800 leading-relaxed en-content">{electoralCollege.municipal_weight_en}</p>
+          <p class="text-sm text-amber-700 leading-relaxed fr-content">{electoralCollege.delegate_scale_fr}</p>
+          <p class="text-sm text-amber-700 leading-relaxed en-content">{electoralCollege.delegate_scale_en}</p>
+          <p class="text-xs text-amber-500 italic fr-content">{electoralCollege.mandatory_vote_fr}</p>
+          <p class="text-xs text-amber-500 italic en-content">{electoralCollege.mandatory_vote_en}</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- How it works -->
+    <section>
+      <h2 class="font-display text-xl font-semibold text-amber-950 mb-5 pb-2 border-b border-amber-200">
+        <span class="fr-content">Comment sont-ils élus ?</span>
+        <span class="en-content">How are they elected?</span>
+      </h2>
+      <div class="space-y-4">
+        {howItWorks.map((el, i) => (
+          <article class="border border-amber-200 rounded-sm overflow-hidden js-card js-reveal" style={`transition-delay:${i * 70}ms`}>
+            <div class="bg-amber-50 border-b border-amber-200 px-5 py-4">
+              <p class="lbl text-amber-500 font-medium mb-1">
+                <span class="fr-content">{el.threshold_fr}</span>
+                <span class="en-content">{el.threshold_en}</span>
+              </p>
+              <h3 class="font-display text-base font-semibold text-amber-950">
+                <span class="fr-content">{el.system_fr}</span>
+                <span class="en-content">{el.system_en}</span>
+              </h3>
+              <p class="text-xs text-amber-500 mt-0.5">
+                <span class="fr-content">{el.constituencies_fr}</span>
+                <span class="en-content">{el.constituencies_en}</span>
+              </p>
+            </div>
+            {el.rules && el.rules.length > 0 && (
+              <div class="px-5 py-4">
+                <ul class="space-y-1">
+                  {(el.rules as any[]).map((r) => (
+                    <li class="flex items-start gap-2 text-sm text-amber-800">
+                      <span class="text-amber-400 flex-shrink-0 mt-0.5">—</span>
+                      <span>
+                        <span class="fr-content">{r.rule_fr}</span>
+                        <span class="en-content">{r.rule_en}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Series -->
+    <article class="border border-amber-200 rounded-sm overflow-hidden js-card js-reveal">
+      <div class="bg-amber-50 border-b border-amber-200 px-5 py-4">
+        <h2 class="font-display text-lg font-semibold text-amber-950">
+          <span class="fr-content">{series.title_fr}</span>
+          <span class="en-content">{series.title_en}</span>
+        </h2>
+      </div>
+      <div class="px-5 py-5 space-y-4">
+        <p class="text-sm text-amber-800 leading-relaxed fr-content">{series.intro_fr}</p>
+        <p class="text-sm text-amber-800 leading-relaxed en-content">{series.intro_en}</p>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-amber-50 rounded-sm p-4 border border-amber-100">
+            <p class="lbl font-semibold text-amber-600 mb-2">Série 1</p>
+            <p class="text-sm text-amber-800">
+              <span class="fr-content">{series.series_1.seats} sièges</span>
+              <span class="en-content">{series.series_1.seats} seats</span>
+            </p>
+            <p class="text-xs text-amber-500 mt-1">
+              <span class="fr-content">Dernière élection : {series.series_1.last_held}</span>
+              <span class="en-content">Last held: {series.series_1.last_held}</span>
+            </p>
+            <p class="text-xs text-amber-500">
+              <span class="fr-content">Prochaine : {series.series_1.next_scheduled}</span>
+              <span class="en-content">Next: {series.series_1.next_scheduled}</span>
+            </p>
+          </div>
+          <div class="bg-amber-50 rounded-sm p-4 border border-amber-100">
+            <p class="lbl font-semibold text-amber-600 mb-2">Série 2</p>
+            <p class="text-sm text-amber-800">
+              <span class="fr-content">{series.series_2.seats} sièges</span>
+              <span class="en-content">{series.series_2.seats} seats</span>
+            </p>
+            <p class="text-xs text-amber-500 mt-1">
+              <span class="fr-content">Dernière élection : {series.series_2.last_held}</span>
+              <span class="en-content">Last held: {series.series_2.last_held}</span>
+            </p>
+            <p class="text-xs text-amber-500">
+              <span class="fr-content">Prochaine : {series.series_2.next_scheduled}</span>
+              <span class="en-content">Next: {series.series_2.next_scheduled}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Rural overrepresentation -->
+    <article class="border border-amber-200 rounded-sm overflow-hidden js-card js-reveal">
+      <div class="bg-amber-50 border-b border-amber-200 px-5 py-4">
+        <h2 class="font-display text-lg font-semibold text-amber-950">
+          <span class="fr-content">{ruralBias.title_fr}</span>
+          <span class="en-content">{ruralBias.title_en}</span>
+        </h2>
+      </div>
+      <div class="px-5 py-5 space-y-3">
+        <p class="text-sm text-amber-800 leading-relaxed fr-content">{ruralBias.explanation_fr}</p>
+        <p class="text-sm text-amber-800 leading-relaxed en-content">{ruralBias.explanation_en}</p>
+        <p class="text-sm text-amber-700 italic leading-relaxed border-l-2 border-amber-300 pl-3 fr-content">{ruralBias.nickname_fr}</p>
+        <p class="text-sm text-amber-700 italic leading-relaxed border-l-2 border-amber-300 pl-3 en-content">{ruralBias.nickname_en}</p>
+      </div>
+    </article>
+
+    <!-- Reform timeline -->
+    <section>
+      <h2 class="font-display text-xl font-semibold text-amber-950 mb-5 pb-2 border-b border-amber-200">
+        <span class="fr-content">Évolution des règles</span>
+        <span class="en-content">Evolution of the rules</span>
+      </h2>
+      <div class="space-y-0">
+        {reformTimeline.map((r) => (
+          <div class="flex gap-4">
+            <div class="tl-year">{r.date}</div>
+            <div class="tl-body">
+              <p class="text-xs font-semibold text-amber-600 mb-1">{r.law_fr}</p>
+              <p class="text-sm text-amber-800 leading-relaxed fr-content">{r.change_fr}</p>
+              <p class="text-sm text-amber-800 leading-relaxed en-content">{r.change_en}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Role snapshot -->
+    <article class="border border-amber-200 rounded-sm bg-amber-50 px-5 py-5 js-card js-reveal">
+      <h2 class="font-display text-lg font-semibold text-amber-950 mb-2">
+        <span class="fr-content">{roleSnapshot.title_fr}</span>
+        <span class="en-content">{roleSnapshot.title_en}</span>
+      </h2>
+      <p class="text-sm text-amber-800 leading-relaxed fr-content">{roleSnapshot.summary_fr}</p>
+      <p class="text-sm text-amber-800 leading-relaxed en-content">{roleSnapshot.summary_en}</p>
+      <a href={`${base}${roleSnapshot.link_href}`} class="inline-block mt-3 text-sm font-medium text-amber-600 hover:text-amber-800 transition-colors">
+        <span class="fr-content">{roleSnapshot.link_fr}</span>
+        <span class="en-content">{roleSnapshot.link_en}</span>
+      </a>
+    </article>
+
+  </div>
+
+</Layout>

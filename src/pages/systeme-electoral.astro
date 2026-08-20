@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import data from "../../content/electoral-system.json";
 
+const base = import.meta.env.BASE_URL;
+
 const elections = (data as any).elections as any[];
 const calendar  = (data as any).election_calendar as any[];
 const overview  = (data as any).overview as any;
@@ -45,6 +47,13 @@ const overview  = (data as any).overview as any;
         </div>
 
         <div class="px-5 py-5 space-y-4">
+
+          {el.id === "elections-senatoriales" && (
+            <a href={`${base}elections-senatoriales`} class="inline-block text-sm font-medium text-amber-600 hover:text-amber-800 transition-colors">
+              <span class="fr-content">Voir la page dédiée aux élections sénatoriales →</span>
+              <span class="en-content">See the dedicated Senate elections page →</span>
+            </a>
+          )}
 
           <!-- Elects -->
           {(el.elects_fr || el.elects_en) && (
