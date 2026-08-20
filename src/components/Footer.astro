@@ -1,11 +1,12 @@
 ﻿---
+const base = import.meta.env.BASE_URL;
 const links = [
-  { href: "/partis",            fr: "Partis politiques",   en: "Political parties"   },
-  { href: "/institutions",      fr: "Institutions",        en: "Institutions"        },
-  { href: "/systeme-electoral", fr: "Système électoral",   en: "Electoral system"    },
-  { href: "/chronologie",       fr: "Chronologie",         en: "Timeline"            },
-  { href: "/reformes",          fr: "Réformes",            en: "Reforms"             },
-  { href: "/glossaire",         fr: "Glossaire",           en: "Glossary"            },
+  { href: `${base}partis`,            fr: "Partis politiques",   en: "Political parties"   },
+  { href: `${base}institutions`,      fr: "Institutions",        en: "Institutions"        },
+  { href: `${base}systeme-electoral`, fr: "Système électoral",   en: "Electoral system"    },
+  { href: `${base}chronologie`,       fr: "Chronologie",         en: "Timeline"            },
+  { href: `${base}reformes`,          fr: "Réformes",            en: "Reforms"             },
+  { href: `${base}glossaire`,         fr: "Glossaire",           en: "Glossary"            },
 ];
 ---
 

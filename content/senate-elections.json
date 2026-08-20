@@ -1,0 +1,160 @@
+{
+  "_meta": {
+    "section": "senate-elections",
+    "language_primary": "fr",
+    "language_secondary": "en",
+    "last_updated": "2026-08-20",
+    "status_legend": {
+      "verified": "Content confirmed against official source",
+      "needs-verification": "⚠️ AI-drafted — must verify before publishing"
+    },
+    "diagram_hint": "Supports: (1) majority vs proportional map, (2) series 1 / series 2 renewal cycle, (3) electoral college pyramid"
+  },
+
+  "overview": {
+    "title_fr": "Les élections sénatoriales",
+    "title_en": "Senate elections",
+    "summary_fr": "Les 348 sénateurs ne sont pas élus directement par les citoyens, mais par environ 162 000 « grands électeurs » — essentiellement des élus locaux. Le Sénat est renouvelé par moitié tous les trois ans, ce qui en fait une chambre plus stable, mais aussi plus rurale et plus conservatrice que l'Assemblée nationale.",
+    "summary_en": "The 348 senators are not elected directly by citizens, but by around 162,000 'grands électeurs' (electors) — mostly local elected officials. The Senate is renewed by half every three years, making it a more stable chamber, but also a more rural and conservative one than the National Assembly.",
+    "status": "verified"
+  },
+
+  "quick_facts": [
+    { "label_fr": "Sénateurs", "label_en": "Senators", "value": "348", "note_fr": "depuis 2011 (343 auparavant)", "note_en": "since 2011 (343 before)" },
+    { "label_fr": "Mandat", "label_en": "Term", "value_fr": "6 ans", "value_en": "6 years", "note_fr": "depuis la réforme de 2003 (9 ans avant)", "note_en": "since the 2003 reform (9 years before)" },
+    { "label_fr": "Renouvellement", "label_en": "Renewal", "value_fr": "Par moitié, tous les 3 ans", "value_en": "By half, every 3 years", "note_fr": "depuis 2003 (par tiers avant)", "note_en": "since 2003 (by thirds before)" },
+    { "label_fr": "Âge minimum", "label_en": "Minimum age", "value": "24 ans / 24 years", "note_fr": "depuis 2011 (30 ans en 2003, 35 ans avant)", "note_en": "since 2011 (30 in 2003, 35 before)" },
+    { "label_fr": "Électeurs", "label_en": "Electors", "value_fr": "≈ 162 000 grands électeurs", "value_en": "≈ 162,000 electors", "note_fr": "suffrage universel indirect", "note_en": "indirect universal suffrage" }
+  ],
+
+  "electoral_college": {
+    "title_fr": "Qui sont les « grands électeurs » ?",
+    "title_en": "Who are the 'grands électeurs'?",
+    "intro_fr": "Dans chaque département, un collège électoral propre élit les sénateurs. Il est composé de quatre catégories d'élus :",
+    "intro_en": "In each department, a dedicated electoral college elects the senators. It is made up of four categories of elected officials:",
+    "members": [
+      { "category_fr": "Députés et sénateurs du département", "category_en": "The department's deputies and senators", "status": "verified" },
+      { "category_fr": "Conseillers régionaux (section départementale)", "category_en": "Regional councillors (departmental section)", "status": "verified" },
+      { "category_fr": "Conseillers départementaux", "category_en": "Departmental councillors", "status": "verified" },
+      { "category_fr": "Délégués des conseils municipaux (ou leurs suppléants)", "category_en": "Delegates of municipal councils (or their substitutes)", "status": "verified" }
+    ],
+    "municipal_weight_fr": "Les délégués des conseils municipaux représentent à eux seuls environ 95% du collège électoral.",
+    "municipal_weight_en": "Municipal council delegates alone represent about 95% of the electoral college.",
+    "delegate_scale_fr": "Le nombre de délégués envoyés par chaque commune dépend de sa population : de 1 délégué pour un conseil municipal de moins de 500 habitants, jusqu'à la totalité du conseil municipal pour les communes de 9 000 habitants et plus — avec des délégués supplémentaires (1 pour 800 habitants) au-delà de 30 000 habitants.",
+    "delegate_scale_en": "The number of delegates sent by each commune depends on its population: from 1 delegate for a municipal council under 500 inhabitants, up to the entire municipal council for communes of 9,000+ inhabitants — with additional delegates (1 per 800 inhabitants) above 30,000 inhabitants.",
+    "mandatory_vote_fr": "Le vote des grands électeurs est obligatoire : une amende de 100€ est prévue en cas d'abstention non justifiée.",
+    "mandatory_vote_en": "Voting is compulsory for grands électeurs: a €100 fine applies for unjustified abstention.",
+    "sources": ["📎 SOURCE: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070239/LEGISCTA000006115477/", "📎 SOURCE: https://fr.wikipedia.org/wiki/%C3%89lections_s%C3%A9natoriales_fran%C3%A7aises"],
+    "status": "verified"
+  },
+
+  "how_it_works": [
+    {
+      "id": "small-departments",
+      "threshold_fr": "Départements élisant 1 ou 2 sénateurs",
+      "threshold_en": "Departments electing 1 or 2 senators",
+      "system_fr": "Scrutin majoritaire à deux tours",
+      "system_en": "Two-round majority vote",
+      "constituencies_fr": "52 circonscriptions départementales (environ un quart des sièges)",
+      "constituencies_en": "52 departmental constituencies (roughly a quarter of seats)",
+      "rules": [
+        {
+          "rule_fr": "1er tour : élu si majorité absolue des suffrages exprimés ET voix égales à 1/4 des électeurs inscrits",
+          "rule_en": "Round 1: elected with an absolute majority of votes cast AND votes equal to 1/4 of registered electors",
+          "status": "verified"
+        },
+        {
+          "rule_fr": "2nd tour : la majorité relative suffit ; en cas d'égalité, le plus âgé est élu",
+          "rule_en": "Round 2: a plurality is enough; in case of a tie, the older candidate wins",
+          "status": "verified"
+        },
+        {
+          "rule_fr": "Chaque candidat se présente avec un remplaçant de sexe différent",
+          "rule_en": "Each candidate runs alongside a substitute of a different gender",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "large-departments",
+      "threshold_fr": "Départements élisant 3 sénateurs ou plus",
+      "threshold_en": "Departments electing 3 or more senators",
+      "system_fr": "Scrutin de liste à la représentation proportionnelle (plus forte moyenne)",
+      "system_en": "Proportional list vote (highest average method)",
+      "constituencies_fr": "57 circonscriptions départementales, 255 sièges (environ trois quarts des sièges)",
+      "constituencies_en": "57 departmental constituencies, 255 seats (roughly three quarters of seats)",
+      "rules": [
+        {
+          "rule_fr": "Élection à un seul tour, sans panachage ni vote préférentiel",
+          "rule_en": "Single-round election, no vote-splitting or preferential voting",
+          "status": "verified"
+        },
+        {
+          "rule_fr": "Sur chaque liste, les sièges sont attribués selon l'ordre de présentation des candidats",
+          "rule_en": "On each list, seats go to candidates in the order they appear on the list",
+          "status": "verified"
+        },
+        {
+          "rule_fr": "Seuil abaissé de 4 à 3 sénateurs par la loi du 2 août 2013",
+          "rule_en": "Threshold lowered from 4 to 3 senators by the law of 2 August 2013",
+          "status": "verified"
+        }
+      ],
+      "status": "verified"
+    },
+    {
+      "id": "expats",
+      "threshold_fr": "Français établis hors de France",
+      "threshold_en": "French citizens living abroad",
+      "system_fr": "Scrutin de liste proportionnel, par un collège de conseillers et délégués consulaires",
+      "system_en": "Proportional list vote, by a college of consular councillors and delegates",
+      "constituencies_fr": "12 sièges au total, répartis en deux séries de 6",
+      "constituencies_en": "12 seats total, split into two series of 6",
+      "status": "verified"
+    }
+  ],
+
+  "series": {
+    "title_fr": "Un renouvellement par moitié",
+    "title_en": "Renewal by half",
+    "intro_fr": "Depuis la réforme de 2003, les 348 sénateurs sont répartis en deux séries qui alternent tous les trois ans, chaque sénateur restant élu pour 6 ans.",
+    "intro_en": "Since the 2003 reform, the 348 senators are split into two series that alternate every three years, with each senator serving a 6-year term.",
+    "series_1": { "seats": 170, "last_held": "24 septembre 2023", "next_scheduled": "septembre 2029", "status": "verified" },
+    "series_2": { "seats": 178, "last_held": "27 septembre 2020", "next_scheduled": "septembre 2026", "status": "verified" },
+    "upcoming_note_fr": "La prochaine élection sénatoriale (série 2, 178 sièges) est prévue en septembre 2026.",
+    "upcoming_note_en": "The next Senate election (series 2, 178 seats) is scheduled for September 2026.",
+    "sources": ["📎 SOURCE: https://fr.wikipedia.org/wiki/%C3%89lections_s%C3%A9natoriales_fran%C3%A7aises"],
+    "status": "verified"
+  },
+
+  "rural_overrepresentation": {
+    "title_fr": "Pourquoi le Sénat penche à droite",
+    "title_en": "Why the Senate leans right",
+    "explanation_fr": "Le poids des délégués municipaux favorise structurellement les petites communes rurales, très nombreuses en France. La majorité absolue des délégués sénatoriaux provient de communes de moins de 1 500 habitants (environ un tiers de la population française), tandis que les villes de plus de 10 000 habitants — qui rassemblent près de 40% de la population — ne représentent qu'environ 20% des délégués.",
+    "explanation_en": "The weight of municipal delegates structurally favours France's many small rural communes. An absolute majority of senatorial delegates come from communes with under 1,500 inhabitants (about a third of the French population), while towns of 10,000+ inhabitants — home to nearly 40% of the population — account for only about 20% of delegates.",
+    "nickname_fr": "Le juriste Georges Vedel qualifiait le Sénat de « Chambre d'agriculture », élue par « la France du seigle et de la châtaigne » (expression popularisée par le politiste Maurice Duverger en 1959).",
+    "nickname_en": "Legal scholar Georges Vedel described the Senate as a 'Chamber of Agriculture', elected by 'rye-and-chestnut France' (a phrase popularised by political scientist Maurice Duverger in 1959).",
+    "sources": ["📎 SOURCE: https://www.persee.fr/doc/ecoru_0013-0559_1997_num_237_1_4839", "📎 SOURCE: https://fr.wikipedia.org/wiki/%C3%89lections_s%C3%A9natoriales_fran%C3%A7aises"],
+    "status": "verified"
+  },
+
+  "reform_timeline": [
+    { "date": "1958", "law_fr": "Ordonnance n°58-1098 du 15 novembre 1958", "change_fr": "Fixe les règles électorales de la Ve République : majoritaire (≤4 sièges) / proportionnel (5+ sièges)", "change_en": "Sets the Fifth Republic electoral rules: majority (≤4 seats) / proportional (5+ seats)", "status": "verified" },
+    { "date": "2000", "law_fr": "Loi n°2000-641 du 10 juillet 2000", "change_fr": "Étend la proportionnelle aux départements de 3+ sièges ; la hausse du nombre de délégués pour les grandes villes est censurée par le Conseil constitutionnel", "change_en": "Extends proportional representation to 3+ seat departments; the increase in delegates for large towns is struck down by the Constitutional Council", "status": "verified" },
+    { "date": "2003", "law_fr": "Loi n°2003-697 du 30 juillet 2003", "change_fr": "Mandat ramené de 9 à 6 ans, renouvellement par moitié (au lieu de par tiers), âge minimum abaissé de 35 à 30 ans, seuil de la proportionnelle fixé à 4+ sièges", "change_en": "Term cut from 9 to 6 years, renewal by half instead of thirds, minimum age lowered from 35 to 30, proportional threshold set at 4+ seats", "status": "verified" },
+    { "date": "2011", "law_fr": "Loi organique n°2011-410 du 14 avril 2011", "change_fr": "Âge minimum abaissé de 30 à 24 ans ; nombre de sénateurs porté à 348", "change_en": "Minimum age lowered from 30 to 24; number of senators raised to 348", "status": "verified" },
+    { "date": "2013", "law_fr": "Loi n°2013-702 du 2 août 2013", "change_fr": "Seuil de la proportionnelle abaissé à 3+ sièges, hausse des délégués pour les grandes villes, réforme de l'élection des sénateurs représentant les Français de l'étranger", "change_en": "Proportional threshold lowered to 3+ seats, more delegates for large towns, reform of the election of senators representing French citizens abroad", "status": "verified" }
+  ],
+
+  "senate_role_snapshot": {
+    "title_fr": "Ce que fait le Sénat",
+    "title_en": "What the Senate does",
+    "summary_fr": "Chambre haute du Parlement, le Sénat examine et amende les lois, doit approuver les révisions constitutionnelles, et son président assure l'intérim de la présidence de la République en cas de vacance. Il ne peut pas renverser le gouvernement, et l'Assemblée nationale a le dernier mot en cas de désaccord persistant sur les lois ordinaires.",
+    "summary_en": "As the upper house of Parliament, the Senate examines and amends bills, must approve constitutional revisions, and its president serves as acting President of the Republic in case of a vacancy. It cannot bring down the government, and the National Assembly has the final say on ordinary laws in case of persistent disagreement.",
+    "link_href": "institutions",
+    "link_fr": "Voir le rôle complet du Sénat dans les institutions →",
+    "link_en": "See the Senate's full role in Institutions →",
+    "status": "verified"
+  }
+}
