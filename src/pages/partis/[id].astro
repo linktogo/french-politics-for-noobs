@@ -30,7 +30,7 @@ const { identity, ideology, history, history_summary, key_figures, legislative_r
 const timeline: any[] = history?.timeline ?? [];
 
 // Normalise key_policies to a uniform list
-function normalisePolicies(policies: Record<string, any>) {
+function normalisePolicies(policies: Record<string, any> | undefined) {
   const out: { key: string; fr: string | string[]; en: string | string[]; list: boolean; status?: string }[] = [];
   const skip = new Set<string>();
   for (const [k, v] of Object.entries(policies ?? {})) {
@@ -50,7 +50,7 @@ function normalisePolicies(policies: Record<string, any>) {
   return out;
 }
 
-const policies = normalisePolicies(program_2027?.key_policies ?? {});
+const policies = normalisePolicies(program_2027?.key_policies);
 
 const policyLabel: Record<string, { fr: string; en: string }> = {
   immigration:        { fr: "Immigration",    en: "Immigration"   },

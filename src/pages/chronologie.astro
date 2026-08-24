@@ -231,8 +231,10 @@ const eventsWithMeta = events.map((ev: any) => {
         const t = btn.dataset.type!;
         if (t === 'all') {
           active.clear();
+        } else if (active.has(t)) {
+          active.delete(t);
         } else {
-          active.has(t) ? active.delete(t) : active.add(t);
+          active.add(t);
         }
         syncButtons();
         applyFilter();

@@ -5,13 +5,27 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "update:deputes": "node scripts/update-deputes-votes.mjs",
+    "update:deputes:watch": "node scripts/update-deputes-votes.mjs --watch",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "astro": "^5.7.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.1.0",
-    "tailwindcss": "^4.1.0"
+    "@vitest/coverage-v8": "^4.1.11",
+    "adm-zip": "^0.6.0",
+    "eslint": "^10.9.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "globals": "^17.11.0",
+    "tailwindcss": "^4.1.0",
+    "typescript-eslint": "^8.67.0",
+    "vitest": "^4.1.11"
   }
 }

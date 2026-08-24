@@ -30,7 +30,7 @@ const {
     <title>{title} — La politique Française pour les nuls</title>
     <script is:inline>
       (function () {
-        var lang = localStorage.getItem("fpfn-lang") || "fr";
+        const lang = localStorage.getItem("fpfn-lang") || "fr";
         if (lang === "en") {
           document.documentElement.setAttribute("lang", "en");
           document.write(
@@ -43,13 +43,13 @@ const {
   <body>
     <script is:inline>
       (function () {
-        var lang = localStorage.getItem("fpfn-lang") || "fr";
+        const lang = localStorage.getItem("fpfn-lang") || "fr";
         if (lang === "en") document.body.classList.add("lang-en");
       })();
 
       function toggleLang() {
-        var isEn = document.body.classList.contains("lang-en");
-        var next = isEn ? "fr" : "en";
+        const isEn = document.body.classList.contains("lang-en");
+        const next = isEn ? "fr" : "en";
         document.body.classList.toggle("lang-en", !isEn);
         document.documentElement.setAttribute("lang", next);
         localStorage.setItem("fpfn-lang", next);
